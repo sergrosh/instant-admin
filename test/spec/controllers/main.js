@@ -3,7 +3,7 @@
 describe('Controller: MainCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('instant-adminApp'));
+  beforeEach(module('itemadminclientApp'));
 
   var MainCtrl,
     scope;

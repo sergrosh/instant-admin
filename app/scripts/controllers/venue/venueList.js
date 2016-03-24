@@ -31,7 +31,7 @@ angular.module('itemadminclientApp')
 
         $http({
           method: 'GET',
-          url: ENV.apiEndpoint + 'venues/?limit=' + pageItems + '&offset=' + currentPage
+          url: ENV.apiEndpoint + 'venue/?limit=' + pageItems + '&offset=' + currentPage
         }).success(function (data) {
           $scope.venues = data.data;
           $scope.venueTotalCount = data.total;
@@ -46,14 +46,10 @@ angular.module('itemadminclientApp')
 
       $scope.columNameList = [
         'id',
+        'user',
         'name',
         'country',
-        'street',
-        'city',
-        'postalCode',
-        'phoneNumber',
-        'targetUrl',
-        'homepageUrl'
+        'city'
       ];
       $scope.columnNameSelectedList = ['id', "name", "country"];
 

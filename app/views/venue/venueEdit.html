@@ -1,0 +1,22 @@
+<h2>Add new venue</h2>
+
+<form novalidate name="AddNewForm" method="post" action="" class="form-horizontal">
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="name">Name</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="name" placeholder="Enter name" ng-model="venue.name" required>
+    </div>
+    </div>
+</form>
+
+<div class="col-xs-offset-2">
+  <button class="btn btn-primary" ng-disabled="AddNewForm.$invalid" ng-click="createVenue(venue)">
+    Save
+  </button>
+  <br/>
+  <br/>
+</div>
+
+
+
+

@@ -1,0 +1,56 @@
+<div class="col-md-3"><h5>All avaliable dishes</h5></div>
+<div id="venueListCenter" class="col-md-6" style="border-left:solid 1px #e2e2e2; border-right:solid 1px #e2e2e2;">
+
+  <div class="clearfix"></div>
+
+  <a ng-click="isReplyFormOpen = !isReplyFormOpen" class="pointer"><h4>Show selected fields</h4></a>
+
+  <div ng-init="isReplyFormOpen = false" ng-show="isReplyFormOpen" id="replyForm">
+    <label ng-repeat="columnName in columNameList">
+      <input type="checkbox" checklist-model="columnNameSelectedList" checklist-value="columnName">&nbsp;{{columnName}}&nbsp;&nbsp;&nbsp;&nbsp;
+    </label>
+
+  </div>
+  <table
+    tr-ng-grid=""
+    items="venues"
+    page-items="8"
+    total-items="venueTotalCount"
+    enable-filtering='false'
+    enable-sorting="false"
+    fields="columnNameSelectedList"
+    selected-items="mySelectedItems"
+    on-data-required="onServerSideItemsRequested(currentPage, pageItems, filterBy, filterByFields, orderBy, orderByReverse)">
+
+
+    <tbody>
+    <td>
+      <button type="button" ng-click="updateItem(venue)" class="btn btn-sm btn-primary"><i
+        class="glyphicon glyphicon-pencil"></i></button>
+      <span>&nbsp;&nbsp;</span>
+      <button type="button" ng-click="removeVenue(gridItem.id, $index)" class="btn btn-sm btn-danger"><i
+        class="glyphicon glyphicon-remove"></i></button>
+    </td>
+    </tbody>
+
+  </table>
+
+
+</div>
+<div class="col-md-3"><h5>Dishes served in venue</h5></div>
+<div class="clearfix"></div>
+
+<hr>
+<div ng-show="mySelectedItems">
+  <h4>Venue Details</h4>
+  <table
+    tr-ng-grid=""
+    enable-filtering='false'
+    items="mySelectedItems"
+    selected-items="mySelectedItems"
+  >
+  </table>
+
+</div>
+
+
